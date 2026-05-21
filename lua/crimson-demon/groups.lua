@@ -7,105 +7,55 @@ M.setup = function()
     -- =================================
     -- Core UI
     -- =================================
-    Normal = { fg = c.fg, bg = c.bg },
-    NormalNC = { fg = c.fg, bg = c.bg },
-    NormalFloat = { fg = c.fg, bg = c.menu_bg },
-    FloatBorder = { fg = c.split, bg = c.menu_bg },
-    EndOfBuffer = { fg = c.bg, bg = c.bg },
+    Comment = { fg = c.color0 },
+    String = { fg = c.color1 },
+    Number = { fg = c.color2 },
+    TSCharacter = { fg = c.color3 },
+    Keyword = { fg = c.color3 },
+    Type = { fg = c.color3 },
+    Function = { fg = c.color1 },
+    Error = { bg = c.color5, fg = c.color6 },
+    StatusLine = { bg = c.color8, fg = c.color7 },
+    WildMenu = { bg = c.color10, fg = c.color9 },
+    Pmenu = { bg = c.color10, fg = c.color9 },
+    PmenuSel = { fg = c.color9 },
+    PmenuThumb = { bg = c.color10, fg = c.color9 },
+    Normal = { bg = c.color10, fg = c.color9 },
+    Visual = { bg = "#3a2447" },
+    CursorLine = { bg = "#200f24" },
+    ColorColumn = { fg = c.color11 },
+    SignColumn = { fg = c.color10 },
+    LineNr = { bg = "#030303", fg = c.color12 },
+    TabLine = { bg = c.color13, fg = c.color14 },
+    TabLineFill = { bg = c.color13, fg = c.color14 },
+    TSPunctDelimiter = { fg = c.color9 },
+    Constant = { fg = c.color9 },
+    Special = { fg = c.color9 },
+    Operator = { fg = c.color4 },
+    PreProc = { fg = c.color1 },
+    Identifier = { fg = c.color9 },
+    Other = { fg = c.color3 },
 
-    Cursor = { fg = c.bg, bg = c.cursor },
-    iCursor = { link = "Cursor" },
-    TermCursor = { reverse = true },
-
-    CursorLine = { bg = c.cursorline },
-    CursorColumn = { bg = c.cursorline },
-    ColorColumn = { bg = c.cursorline },
-
-    LineNr = { fg = c.linenr, bg = c.bg },
-    CursorLineNr = { fg = c.string, bg = c.cursorline, bold = true },
-    SignColumn = { fg = c.gutter_fg, bg = c.bg },
-
-    VertSplit = { fg = c.split, bg = c.bg },
-    WinSeparator = { fg = c.split, bg = c.bg },
-
-    StatusLine = { fg = c.fg, bg = c.statusline, bold = true },
-    StatusLineNC = { fg = c.comment, bg = c.statusline },
-
-    Visual = { bg = c.visual },
-    VisualNOS = { link = "Visual" },
-
-    Search = { fg = c.bg, bg = c.search },
-    IncSearch = { fg = c.black, bg = c.bright_yellow, bold = true },
-
-    WildMenu = { fg = c.bg, bg = c.search },
-
-    Pmenu = { fg = c.fg, bg = c.menu_bg },
-    PmenuSel = { fg = c.fg, bg = c.menu_sel },
-    PmenuSbar = { bg = c.menu_bg },
-    PmenuThumb = { bg = c.menu_sel },
-
-    FoldColumn = { fg = c.linenr, bg = c.bg },
-    Folded = { fg = c.number, bg = c.fold },
-
-    MatchParen = { fg = c.fg, bg = c.menu_sel, bold = true },
-    SpecialKey = { fg = c.nontext, bg = c.bg },
-    NonText = { fg = c.nontext, bg = c.bg },
-
-    Title = { fg = c.fg, bg = c.bg, bold = true },
-    Directory = { fg = c.blue, bg = c.bg, bold = true },
-    Underlined = { underline = true },
-
-    ModeMsg = { fg = c.fg, bg = c.bg },
-    MoreMsg = { fg = c.fg, bg = c.bg },
-    Question = { fg = c.fg, bg = c.bg },
-
-    -- =================================
-    -- Standard syntax
-    -- =================================
-    Comment = { fg = c.comment, bg = c.bg },
-
-    Constant = { fg = c.constant, bg = c.bg },
-    String = { fg = c.string, bg = c.bg },
-    Character = { fg = c.string, bg = c.bg },
-    Number = { fg = c.number, bg = c.bg },
-    Float = { fg = c.number, bg = c.bg },
-    Boolean = { fg = c.boolean, bg = c.bg },
-
-    Identifier = { fg = c.variable, bg = c.bg },
-    Function = { fg = c["Function"], bg = c.bg },
-
-    Keyword = { fg = c.keyword, bg = c.bg },
-    Conditional = { link = "Keyword" },
-    Statement = { link = "Keyword" },
-    Repeat = { link = "Keyword" },
-    Label = { link = "Keyword" },
-    Exception = { link = "Keyword" },
-    Include = { link = "Keyword" },
-    Define = { link = "Keyword" },
-    PreCondit = { link = "Keyword" },
-    PreProc = { link = "Keyword" },
-    Macro = { link = "Keyword" },
-    Todo = { fg = c.bg, bg = c.keyword, bold = true },
-
-    Operator = { fg = c.operator, bg = c.bg },
-    Delimiter = { fg = c.operator, bg = c.bg },
-
-    Type = { fg = c.type, bg = c.bg },
-    Structure = { link = "Type" },
-    StorageClass = { link = "Type" },
-    Typedef = { link = "Type" },
-
-    Special = { fg = c.magenta, bg = c.bg },
-    SpecialChar = { fg = c.magenta, bg = c.bg },
-    SpecialComment = { link = "String" },
-    Tag = { fg = c.number, bg = c.bg },
-
-    Debug = { fg = c.red, bg = c.bg },
+    -- c
+    ["@type.builtin.c"] = { fg = c.color15 },
+    ["@string.escape.c"] = { fg = c.color3 },
+    ["@character.c"] = { fg = c.color1 },
+    ["@keyword.directive.define.c"] = { fg = c.color4 },
+    ["@keyword.repeat.c"] = { fg = c.color4 },
+    ["@keyword.return.c"] = { fg = c.color4 },
+    ["@keyword.type.c"] = { fg = c.color15 },
+    ["@lsp.type.class.c"] = { fg = c.color9 },
+    ["@keyword.import.c"] = { fg = c.color4 },
+    -- ["@lsp.typemod.class.globalScope.c"] = {fg = c.color15},
+    ["@lsp.mod.defaultLibrary.c"] = { fg = c.color15 },
+    ["@lsp.typemod.function.defaultLibrary.c"] = { fg = c.color1 },
+    ["@lsp.typemod.macro.declaration.c"] = { fg = c.color1 },
+    ["@keyword.conditional.c"] = { fg = c.color4 },
+    ["@keyword.directive.c"] = { fg = c.color4 },
 
     -- =================================
     -- Errors / spelling / diff
     -- =================================
-    Error = { fg = c.white, bg = c.red },
     ErrorMsg = { fg = c.white, bg = c.bright_red },
     WarningMsg = { fg = c.diag_warn, bg = c.bg },
 
