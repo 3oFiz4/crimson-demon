@@ -1,6 +1,6 @@
 local M = {}
 
-local colors = require("crimson_demon.palette")
+local colors = require("crimson-demon.palette")
 
 M.setup = function()
   return {

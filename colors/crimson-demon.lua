@@ -1,0 +1,1 @@
+require("crimson-demon").setup()
