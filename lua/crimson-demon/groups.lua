@@ -7,67 +7,154 @@ M.setup = function()
     -- =================================
     -- Core UI
     -- =================================
-    Comment = { fg = c.color0 },
-    String = { fg = c.color1 },
-    Number = { fg = c.color2 },
-    TSCharacter = { fg = c.color3 },
-    Keyword = { fg = c.color3 },
-    Type = { fg = c.color3 },
-    Function = { fg = c.color1 },
-    Error = { bg = c.color5, fg = c.color6 },
-    StatusLine = { bg = c.color8, fg = c.color7 },
-    WildMenu = { bg = c.color10, fg = c.color9 },
-    Pmenu = { bg = c.color10, fg = c.color9 },
-    PmenuSel = { fg = c.color9 },
-    PmenuThumb = { bg = c.color10, fg = c.color9 },
-    Normal = { bg = c.color10, fg = c.color9 },
-    Visual = { bg = c.red_dark },
-    CursorLine = { bg = "#110000" },
-    ColorColumn = { fg = c.color11 },
-    SignColumn = { fg = c.color10 },
-    LineNr = { bg = "#030303", fg = c.color12 },
-    TabLine = { bg = c.color13, fg = c.color14 },
-    TabLineFill = { bg = c.color13, fg = c.color14 },
-    TSPunctDelimiter = { fg = c.color9 },
-    Constant = { fg = c.color9 },
-    Special = { fg = c.color9 },
-    Operator = { fg = c.color4 },
-    PreProc = { fg = c.color1 },
-    Identifier = { fg = c.color9 },
-    Other = { fg = c.color3 },
 
-    -- c
-    ["@type.builtin.c"] = { fg = c.color15 },
-    ["@string.escape.c"] = { fg = c.color3 },
-    ["@character.c"] = { fg = c.color1 },
-    ["@keyword.directive.define.c"] = { fg = c.color4 },
-    ["@keyword.repeat.c"] = { fg = c.color4 },
-    ["@keyword.return.c"] = { fg = c.color4 },
-    ["@keyword.type.c"] = { fg = c.color15 },
-    ["@lsp.type.class.c"] = { fg = c.color9 },
-    ["@keyword.import.c"] = { fg = c.color4 },
-    -- ["@lsp.typemod.class.globalScope.c"] = {fg = c.color15},
-    ["@lsp.mod.defaultLibrary.c"] = { fg = c.color15 },
-    ["@lsp.typemod.function.defaultLibrary.c"] = { fg = c.color1 },
-    ["@lsp.typemod.macro.declaration.c"] = { fg = c.color1 },
-    ["@keyword.conditional.c"] = { fg = c.color4 },
-    ["@keyword.directive.c"] = { fg = c.color4 },
+    -- Lowest cognitive priority:
+    -- comments, gutters, separators.
+    Comment = { fg = c.hex04 },
+
+    -- Strings should feel "soft" and passive.
+    String = { fg = c.hex08 },
+
+    -- Numbers draw attention naturally.
+    Number = { fg = c.white },
+
+    TSCharacter = { fg = c.hex09 },
+
+    -- Keywords define structure.
+    -- High contrast improves scanning speed.
+    Keyword = { fg = c.white },
+    Type = { fg = c.hex10 },
+
+    -- Functions should stand out,
+    -- but less than keywords.
+    Function = { fg = c.hex09 },
+
+    Error = { bg = c.hex03, fg = c.white },
+
+    StatusLine = { bg = c.hex01, fg = c.hex09 },
+
+    WildMenu = { bg = c.hex01, fg = c.hex10 },
+    Pmenu = { bg = c.hex01, fg = c.hex09 },
+    PmenuSel = { bg = c.hex03, fg = c.white },
+    PmenuThumb = { bg = c.hex04 },
+
+    Normal = { bg = c.black, fg = c.hex09 },
+
+    Visual = { bg = c.hex03 },
+
+    CursorLine = { bg = c.hex01 },
+
+    ColorColumn = { bg = c.hex01 },
+
+    SignColumn = { bg = c.black, fg = c.hex05 },
+
+    LineNr = { bg = c.black, fg = c.hex03 },
+
+    TabLine = { bg = c.hex00, fg = c.hex06 },
+    TabLineFill = { bg = c.hex00, fg = c.hex05 },
+
+    TSPunctDelimiter = { fg = c.hex06 },
+
+    Constant = { fg = c.hex08 },
+
+    Special = { fg = c.hex09 },
+
+    Operator = { fg = c.hex07 },
+
+    PreProc = { fg = c.hex10 },
+
+    Identifier = { fg = c.hex09 },
+
+    Other = { fg = c.hex08 },
+
+    -- =================================
+    -- C language
+    -- =================================
+
+    ["@type.builtin.c"] = { fg = c.white },
+
+    ["@string.escape.c"] = { fg = c.hex10 },
+
+    ["@character.c"] = { fg = c.hex08 },
+
+    ["@keyword.directive.define.c"] = { fg = c.hex10 },
+
+    ["@keyword.repeat.c"] = { fg = c.white },
+
+    ["@keyword.return.c"] = { fg = c.white },
+
+    ["@keyword.type.c"] = { fg = c.hex10 },
+
+    ["@lsp.type.class.c"] = { fg = c.hex09 },
+
+    ["@keyword.import.c"] = { fg = c.hex09 },
+
+    ["@lsp.mod.defaultLibrary.c"] = { fg = c.white },
+
+    ["@lsp.typemod.function.defaultLibrary.c"] = {
+      fg = c.hex10,
+    },
+
+    ["@lsp.typemod.macro.declaration.c"] = {
+      fg = c.hex10,
+    },
+
+    ["@keyword.conditional.c"] = { fg = c.white },
+
+    ["@keyword.directive.c"] = { fg = c.hex09 },
 
     -- =================================
     -- Errors / spelling / diff
     -- =================================
-    ErrorMsg = { fg = c.white, bg = c.bright_red },
-    WarningMsg = { fg = c.diag_warn, bg = c.bg },
 
-    SpellBad = { undercurl = true, sp = c.diag_error },
-    SpellCap = { undercurl = true, sp = c.diag_warn },
-    SpellRare = { undercurl = true, sp = c.magenta },
+    ErrorMsg = {
+      fg = c.white,
+      bg = c.hex03,
+      bold = true,
+    },
+
+    WarningMsg = {
+      fg = c.hex10,
+      bg = c.black,
+    },
+
+    SpellBad = {
+      undercurl = true,
+      sp = c.white,
+    },
+
+    SpellCap = {
+      undercurl = true,
+      sp = c.hex09,
+    },
+
+    SpellRare = {
+      undercurl = true,
+      sp = c.hex07,
+    },
+
     SpellLocal = { link = "SpellCap" },
 
-    DiffAdd = { fg = c.green, bg = c.menu_bg },
-    DiffChange = { fg = c.yellow, bg = c.menu_bg },
-    DiffDelete = { fg = c.diag_error, bg = c.menu_bg },
-    DiffText = { fg = c.white, bg = c.red, bold = true },
+    DiffAdd = {
+      fg = c.hex09,
+      bg = c.hex01,
+    },
+
+    DiffChange = {
+      fg = c.white,
+      bg = c.hex01,
+    },
+
+    DiffDelete = {
+      fg = c.hex05,
+      bg = c.hex01,
+    },
+
+    DiffText = {
+      fg = c.white,
+      bg = c.hex03,
+      bold = true,
+    },
 
     diffAdded = { link = "DiffAdd" },
     diffChanged = { link = "DiffChange" },
@@ -77,100 +164,292 @@ M.setup = function()
     -- =================================
     -- Diagnostics
     -- =================================
-    DiagnosticError = { fg = c.diag_error },
-    DiagnosticWarn = { fg = c.diag_warn },
-    DiagnosticInfo = { fg = c.diag_info },
-    DiagnosticHint = { fg = c.diag_hint },
 
-    DiagnosticSignError = { fg = c.diag_error, bg = c.bg },
-    DiagnosticSignWarn = { fg = c.diag_warn, bg = c.bg },
-    DiagnosticSignInfo = { fg = c.diag_info, bg = c.bg },
-    DiagnosticSignHint = { fg = c.diag_hint, bg = c.bg },
+    DiagnosticError = { fg = c.white },
 
-    DiagnosticVirtualTextError = { fg = c.diag_error, bg = c.menu_bg },
-    DiagnosticVirtualTextWarn = { fg = c.diag_warn, bg = c.menu_bg },
-    DiagnosticVirtualTextInfo = { fg = c.diag_info, bg = c.menu_bg },
-    DiagnosticVirtualTextHint = { fg = c.diag_hint, bg = c.menu_bg },
+    DiagnosticWarn = { fg = c.hex09 },
 
-    DiagnosticUnderlineError = { undercurl = true, sp = c.diag_error },
-    DiagnosticUnderlineWarn = { undercurl = true, sp = c.diag_warn },
-    DiagnosticUnderlineInfo = { undercurl = true, sp = c.diag_info },
-    DiagnosticUnderlineHint = { undercurl = true, sp = c.diag_hint },
+    DiagnosticInfo = { fg = c.hex08 },
+
+    DiagnosticHint = { fg = c.hex06 },
+
+    DiagnosticSignError = {
+      fg = c.white,
+      bg = c.black,
+    },
+
+    DiagnosticSignWarn = {
+      fg = c.hex09,
+      bg = c.black,
+    },
+
+    DiagnosticSignInfo = {
+      fg = c.hex08,
+      bg = c.black,
+    },
+
+    DiagnosticSignHint = {
+      fg = c.hex06,
+      bg = c.black,
+    },
+
+    DiagnosticVirtualTextError = {
+      fg = c.white,
+      bg = c.hex01,
+    },
+
+    DiagnosticVirtualTextWarn = {
+      fg = c.hex09,
+      bg = c.hex01,
+    },
+
+    DiagnosticVirtualTextInfo = {
+      fg = c.hex08,
+      bg = c.hex01,
+    },
+
+    DiagnosticVirtualTextHint = {
+      fg = c.hex06,
+      bg = c.hex01,
+    },
+
+    DiagnosticUnderlineError = {
+      undercurl = true,
+      sp = c.white,
+    },
+
+    DiagnosticUnderlineWarn = {
+      undercurl = true,
+      sp = c.hex09,
+    },
+
+    DiagnosticUnderlineInfo = {
+      undercurl = true,
+      sp = c.hex08,
+    },
+
+    DiagnosticUnderlineHint = {
+      undercurl = true,
+      sp = c.hex06,
+    },
 
     -- =================================
     -- TreeSitter
     -- =================================
+
     ["@comment"] = { link = "Comment" },
-    ["@comment.documentation"] = { link = "Comment" },
+
+    ["@comment.documentation"] = {
+      fg = c.hex05,
+    },
 
     ["@constant"] = { link = "Constant" },
     ["@constant.builtin"] = { link = "Constant" },
     ["@constant.macro"] = { link = "Constant" },
 
     ["@string"] = { link = "String" },
-    ["@string.escape"] = { fg = c.orange, bg = c.bg },
-    ["@string.regexp"] = { fg = c.cyan, bg = c.bg },
 
-    ["@character"] = { link = "Character" },
-    ["@character.special"] = { link = "SpecialChar" },
+    ["@string.escape"] = {
+      fg = c.white,
+      bg = c.black,
+    },
+
+    ["@string.regexp"] = {
+      fg = c.hex10,
+      bg = c.black,
+    },
+
+    ["@character"] = { link = "TSCharacter" },
+
+    ["@character.special"] = {
+      fg = c.white,
+    },
 
     ["@number"] = { link = "Number" },
-    ["@number.float"] = { link = "Float" },
-    ["@boolean"] = { link = "Boolean" },
 
-    ["@variable"] = { fg = c.variable, bg = c.bg },
-    ["@variable.builtin"] = { fg = c.keyword, bg = c.bg },
-    ["@variable.parameter"] = { fg = c.variable, bg = c.bg },
-    ["@variable.member"] = { fg = c.variable, bg = c.bg },
+    ["@number.float"] = { link = "Number" },
 
-    ["@module"] = { fg = c.type, bg = c.bg },
-    ["@label"] = { link = "Label" },
+    ["@boolean"] = {
+      fg = c.white,
+    },
+
+    ["@variable"] = {
+      fg = c.hex09,
+      bg = c.black,
+    },
+
+    ["@variable.builtin"] = {
+      fg = c.hex10,
+      bg = c.black,
+    },
+
+    ["@variable.parameter"] = {
+      fg = c.hex08,
+      bg = c.black,
+    },
+
+    ["@variable.member"] = {
+      fg = c.hex08,
+      bg = c.black,
+    },
+
+    ["@module"] = {
+      fg = c.hex09,
+      bg = c.black,
+    },
+
+    ["@label"] = {
+      fg = c.hex10,
+    },
 
     ["@function"] = { link = "Function" },
-    ["@function.builtin"] = { link = "Function" },
-    ["@function.call"] = { link = "Function" },
-    ["@function.macro"] = { link = "Macro" },
-    ["@function.method"] = { link = "Function" },
-    ["@function.method.call"] = { link = "Function" },
-    ["@constructor"] = { link = "Type" },
+
+    ["@function.builtin"] = {
+      fg = c.white,
+    },
+
+    ["@function.call"] = {
+      fg = c.hex09,
+    },
+
+    ["@function.macro"] = {
+      fg = c.hex10,
+    },
+
+    ["@function.method"] = {
+      fg = c.hex09,
+    },
+
+    ["@function.method.call"] = {
+      fg = c.hex10,
+    },
+
+    ["@constructor"] = {
+      fg = c.white,
+    },
 
     ["@keyword"] = { link = "Keyword" },
-    ["@keyword.function"] = { link = "Keyword" },
-    ["@keyword.return"] = { link = "Keyword" },
-    ["@keyword.operator"] = { link = "Operator" },
-    ["@keyword.import"] = { link = "Include" },
-    ["@keyword.repeat"] = { link = "Repeat" },
-    ["@keyword.conditional"] = { link = "Conditional" },
-    ["@keyword.exception"] = { link = "Exception" },
+
+    ["@keyword.function"] = {
+      fg = c.white,
+    },
+
+    ["@keyword.return"] = {
+      fg = c.white,
+    },
+
+    ["@keyword.operator"] = {
+      fg = c.hex08,
+    },
+
+    ["@keyword.import"] = {
+      fg = c.hex10,
+    },
+
+    ["@keyword.repeat"] = {
+      fg = c.white,
+    },
+
+    ["@keyword.conditional"] = {
+      fg = c.white,
+    },
+
+    ["@keyword.exception"] = {
+      fg = c.white,
+    },
 
     ["@operator"] = { link = "Operator" },
 
     ["@type"] = { link = "Type" },
-    ["@type.builtin"] = { link = "Type" },
-    ["@type.definition"] = { link = "Type" },
 
-    ["@attribute"] = { fg = c.magenta, bg = c.bg },
-    ["@property"] = { fg = c.variable, bg = c.bg },
+    ["@type.builtin"] = {
+      fg = c.white,
+    },
 
-    ["@punctuation.delimiter"] = { link = "Delimiter" },
-    ["@punctuation.bracket"] = { link = "Delimiter" },
-    ["@punctuation.special"] = { link = "SpecialChar" },
+    ["@type.definition"] = {
+      fg = c.hex10,
+    },
 
-    ["@tag"] = { link = "Tag" },
-    ["@tag.attribute"] = { link = "Identifier" },
-    ["@tag.delimiter"] = { link = "Delimiter" },
+    ["@attribute"] = {
+      fg = c.hex08,
+      bg = c.black,
+    },
 
-    -- markdown / markup
-    ["@markup.strong"] = { bold = true },
-    ["@markup.italic"] = { italic = true },
-    ["@markup.underline"] = { underline = true },
-    ["@markup.strikethrough"] = { strikethrough = true },
-    ["@markup.heading"] = { fg = c.keyword, bold = true },
-    ["@markup.link"] = { fg = c.blue, underline = true },
-    ["@markup.raw"] = { fg = c.string },
-    ["@markup.list"] = { fg = c.keyword },
+    ["@property"] = {
+      fg = c.hex08,
+      bg = c.black,
+    },
 
-    rstEmphasis = { italic = true },
+    ["@punctuation.delimiter"] = {
+      fg = c.hex06,
+    },
+
+    ["@punctuation.bracket"] = {
+      fg = c.hex07,
+    },
+
+    ["@punctuation.special"] = {
+      fg = c.hex09,
+    },
+
+    ["@tag"] = {
+      fg = c.white,
+    },
+
+    ["@tag.attribute"] = {
+      fg = c.hex09,
+    },
+
+    ["@tag.delimiter"] = {
+      fg = c.hex07,
+    },
+
+    -- =================================
+    -- Markup
+    -- =================================
+
+    ["@markup.strong"] = {
+      bold = true,
+      fg = c.white,
+    },
+
+    ["@markup.italic"] = {
+      italic = true,
+      fg = c.hex09,
+    },
+
+    ["@markup.underline"] = {
+      underline = true,
+      fg = c.hex10,
+    },
+
+    ["@markup.strikethrough"] = {
+      strikethrough = true,
+      fg = c.hex05,
+    },
+
+    ["@markup.heading"] = {
+      fg = c.white,
+      bold = true,
+    },
+
+    ["@markup.link"] = {
+      fg = c.hex10,
+      underline = true,
+    },
+
+    ["@markup.raw"] = {
+      fg = c.hex08,
+    },
+
+    ["@markup.list"] = {
+      fg = c.hex09,
+    },
+
+    rstEmphasis = {
+      italic = true,
+      fg = c.hex08,
+    },
   }
 end
 
