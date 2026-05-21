@@ -15,22 +15,23 @@ return {
   hex08 = "#808080",
   hex09 = "#909090",
   hex10 = "#A0A0A0",
-  color0 = "#614e6e",
-  color1 = "#f5b0ef",
-  color2 = "#f25ae6",
-  color3 = "#b657ff",
-  color4 = "#8e6da6",
-  color5 = "#664e4d",
-  color6 = "#cf433e",
-  color7 = "#9D89E2",
-  color8 = "#000000",
-  color9 = "#e0ceed",
-  color10 = "#080709",
-  color11 = "#42215b",
-  color12 = "#3b3442",
-  color13 = "#121014",
-  color14 = "#6e607c",
-  color15 = "#A29DFA",
+  color0 = "#6e1a1a", -- muted dark red
+  color1 = "#ffb0b0", -- pale red highlight
+  color2 = "#ff5a5a", -- vivid red
+  color3 = "#ff0000", -- orange-red accent
+  color4 = "#a66d6d", -- desaturated warm red
+  color5 = "#664e4d", -- already warm/brown enough
+  color6 = "#cf433e", -- already red
+  color7 = "#e28989", -- soft pastel red
+  color8 = "#000000", -- black
+  color9 = "#eed0d0", -- light pink-red
+
+  color10 = "#090707", -- near-black warm tint
+  color11 = "#5b2121", -- dark crimson
+  color12 = "#423434", -- muted dark red-gray
+  color13 = "#141010", -- deep warm black
+  color14 = "#7c6060", -- dusty red-gray
+  color15 = "#faa2a2", -- bright soft red
   -- =========================================================
   -- Brightness modifiers
   -- You can tweak ONLY these if you want different contrast.
