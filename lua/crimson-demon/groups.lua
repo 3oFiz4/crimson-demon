@@ -48,8 +48,6 @@ M.setup = function()
 
     SignColumn = { bg = c.black, fg = c.hex05 },
 
-    LineNr = { bg = c.black, fg = c.hex03 },
-
     TabLine = { bg = c.hex00, fg = c.hex06 },
     TabLineFill = { bg = c.hex00, fg = c.hex05 },
 
@@ -63,8 +61,6 @@ M.setup = function()
 
     PreProc = { fg = c.hex10 },
 
-    Identifier = { fg = c.hex09 },
-
     Other = { fg = c.hex08 },
 
     -- =================================
@@ -72,25 +68,15 @@ M.setup = function()
     -- =================================
 
     ["@type.builtin.c"] = { fg = c.white },
-
     ["@string.escape.c"] = { fg = c.hex10 },
-
     ["@character.c"] = { fg = c.hex08 },
-
     ["@keyword.directive.define.c"] = { fg = c.hex10 },
-
     ["@keyword.repeat.c"] = { fg = c.white },
-
     ["@keyword.return.c"] = { fg = c.white },
-
     ["@keyword.type.c"] = { fg = c.hex10 },
-
     ["@lsp.type.class.c"] = { fg = c.hex09 },
-
     ["@keyword.import.c"] = { fg = c.hex09 },
-
     ["@lsp.mod.defaultLibrary.c"] = { fg = c.white },
-
     ["@lsp.typemod.function.defaultLibrary.c"] = {
       fg = c.hex10,
     },
@@ -271,6 +257,41 @@ M.setup = function()
 
     ["@boolean"] = {
       fg = c.white,
+    },
+
+    -- =================================
+    -- Priority semantics
+    --
+    -- Variables  -> softer red
+    -- Functions  -> vivid red
+    -- Classes    -> brightest red
+    --
+    -- Reasoning:
+    -- Variables are frequent, so lower saturation reduces fatigue.
+    -- Functions are action-oriented, so stronger contrast helps scanning.
+    -- Classes/types define architecture, so highest contrast.
+    -- =================================
+
+    LineNr = {
+      bg = c.black,
+      fg = c.hex08, -- soft white-gray
+    },
+
+    StatusLineNC = {
+      bg = c.hex01,
+      fg = c.hex06,
+    },
+
+    -- =================================
+    -- Core semantic priorities
+    -- =================================
+
+    Identifier = {
+      fg = c.color4, -- muted red
+    },
+
+    ["@string.documentation.c"] = {
+      fg = c.red,
     },
 
     ["@variable"] = {
